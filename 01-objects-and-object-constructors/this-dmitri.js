@@ -128,7 +128,7 @@ function Pet2(type, legs) {
 
 // myCat2 = this = {}
 const myCat2 = new Pet2("Cat", 4);
-console.log(console.log(myCat.logInfo, 1000));
+console.log(setTimeout(myCat.logInfo, 1000));
 
 // 4) Constructor invocation
 // new keyword
