@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <form action="#">
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required />
+        <span class="error"></span>
+      </div>
+      <div>
+        <label for="country">Country:</label>
+        <input
+          type="text"
+          name="country"
+          id="country"
+          minlength="3"
+          maxlength="10"
+          pattern="^[a-zA-Z]{3,10}$"
+          required
+        />
+        <span class="error"></span>
+      </div>
+      <div>
+        <label for="zip">Zip Code:</label>
+        <input
+          type="text"
+          name="zipcode"
+          id="zip"
+          maxlength="7"
+          pattern="^[A-Z]{2}-[0-4]{4}$"
+          required
+        />
+        <span class="error"></span>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          pattern="^[0-9a-zA-Z]{10}$"
+          maxlength="10"
+          required
+        />
+        <span class="error"></span>
+      </div>
+      <div>
+        <label for="confirm">Confirm Password:</label>
+        <input type="password" name="confirm-password" id="confirm" required />
+        <span class="error"></span>
+      </div>
+      <button>Submit</button>
+    </form>
+  </body>
+</html>

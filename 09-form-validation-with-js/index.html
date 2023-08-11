@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation with Javascript</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- novalidate - turn off the browser's automatic validation. -->
+    <form novalidate action="#">
+      <p>
+        <label for="mail">
+          I would like you to provide me with an email address:
+        </label>
+        <input type="email" name="mail" id="mail" minlength="8" required />
+        <span class="error" aria-live="polite"></span>
+        <button>Submit</button>
+      </p>
+    </form>
+  </body>
+</html>
