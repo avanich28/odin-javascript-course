@@ -1,0 +1,101 @@
+- Abdul -
+
+Topic: 2.7.1 Two Way MergeSort - Iterative method
+
+- Merge can do in both array and linked list
+
+// Sort each line first before merge
+A = 2, 3, 15, 18 -> m = 4
+B = 5, 9, 12, 17 -> n = 4
+
+// Merge sort
+C = 2, 5, 8, 9, 12, 15, 17, 18 -> k
+
+// Prove
+algorithmMerge(A, B, m, n) {
+  let i = 1; j = 1; k = 1;
+
+  // Merge
+  while(i <= m && j <= n) {
+    if(A[i] < B[j]) {
+      [k++] = A[i++];
+    } else {
+      [k++] = B[j++];
+    }
+  }
+
+  // copying elements for remaining elements
+  // (when 2 lists are not equal ex. m = 5, n = 3)
+  for(; i <= m; i++) {
+    [k++] = A[i];
+  } 
+  for(; j <= n; j++) {
+    [k++] = B[j];
+  }
+}
+
+// M-way merging ex. 4-way merging
+
+A = 4, 6, 12
+B = 3, 5, 9
+C = 8, 10, 16
+D = 2, 4, 18
+
+- Merge AB and CD
+AB: 3, 4, 5, 6, 9, 12
+CD: 2, 4, 8, 10, 16, 18
+
+- Merge in single list
+ABCD: 2, 4, 4, 5, 6, 8, 9, 10, 12, 16, 18
+
+// Can merge AB ABC ABCD
+// Or CD CDB CDBA
+
+// 2-way Merge Sort
+- There are 2 merge sort methods
+
+1. 2-way merge sort 
+- iterative process repeating procedure that is using loop
+
+2. merge sort 
+- recursive procedure/algorithm
+
+A = [9, 3, 7, 5, 6, 4, 8, 2, 1]
+- Assume each element in A array as a list
+- Each list has just a single element
+- Using 2-way merge process
+
+1st pass: 39 57 46 28 1 (come down directly if have 1 element) 
+2nd pass: 3579 2468 1
+3rd pass: 23456789 1
+4th pass: 123456789
+
+// n = allPass = 4
+// 9/2 /2 /2
+// log2 9 = 10
+// n / n of passed -> log n
+// θ(nlog n) 🔥
+// take theta bcs there is a class available for this function.
+
+Topic: 2.7.2. Merge Sort Algorithm
+
+- Divide and conquer strategy said that if a problem is large then big the problem into subproblem.
+- a single element is a small problem.
+- merge sort uses recursive algorithm
+
+     1  2  3  4  5  6  7  8
+A = [9, 3, 7, 5, 6, 4, 8, 2]
+low = 9
+high = 2
+mid = 5
+
+algorithmMergeSort(l, h) { -> T(n)
+  if (l < h) {
+    mid = l + h / 2;
+    mergeSort(l, mid); -> T(n/2)
+    mergeSort(mid + 1, h); -> T(n/2)
+    merge(l, mid, h); -> n
+  }
+}
+
+// time: T(n) = 2T(n/2) + n
