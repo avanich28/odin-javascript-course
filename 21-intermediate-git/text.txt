@@ -1,0 +1,116 @@
+// - A Deeper Look at Git -
+
+// Topic: Changing history
+
+// 1. Getting set up
+
+$ touch test{1..4}.md
+
+$ git add test1.md && git commit -m 'Create first file'
+$ git add test2.md && git commit -m 'Create send file'
+$ git add test3.md && git commit -m 'Create third file and create fourth file'
+
+
+// 2. Setting up the code editor
+
+// it config --global core.editor 'code --wait'
+
+// To perform Git commands that require opening a text editor
+- git commit --amend
+- git rebase -i
+
+
+// 3. Changing the last commit
+
+// for got to add file test4.md
+- git add test4.md (staging area)
+- git commit --amend
+
+// IMPT Remember to only amend commits that have not been pushed anywhere!
+
+
+// 4. Changing multiple commits
+
+// git log
+// git rebase i HEAD~<number>
+
+// change from pick to edit
+// show old to new comment
+// edit eacf39d Create send file
+// pick 92ad0af Create third file and create fourth file
+
+// change commit
+// git commit --amend
+// (revise message)
+// git rebase --continue
+
+// check
+// git log
+
+// IMPT if you have to rebase commits in a shared repository, make sure you’re doing so for a very good reason that your coworkers are aware of.
+
+
+// 5. Squashing commits (combine commit 🔥)
+
+// git rebase -i --root
+
+// change pick to squash
+// Change the message
+
+
+// 6. Splitting up a commit
+
+// git reset HEAD^ (touch the stage area)
+// git add test3.md && git commit -m 'Create third file'
+// git add test4.md && git commit -m 'Create fourth file'
+
+// git reset --soft (Don't touch the stage area or not remove add)
+
+// git reset [--mixed] HEAD~ or git reset HEAD~ (remove add)
+
+// git reset --hard (overwrite the file in working directory)
+
+// git commit --amend (overwrite history)
+
+
+// 7. Working with remotes
+
+// git push --force
+
+// - First Scenario -
+// git push origin main
+// git rebase -i --root
+// git push --force
+// git log
+
+// NOTE test4.md is deleted from github repo! BUG
+
+// FIXME BUG
+// git fetch
+// git merge
+
+// - Second Scenario -
+// touch test4.md
+// git add test4.md && git commit -m 'Create fifth file'
+// git push origin main
+// git log
+
+// NOTE use revert instead
+// git revert HEAD
+// git push origin main
+
+// IMPT git push --force-with-lease 
+
+
+// 8. Dangers and best practices
+
+// -f => force sth should scare you
+
+///////////////////////////
+
+// Show branched graph
+// git log --oneline --abbrev-commit --all
+// git log --oneline --abbrev-commit --all --graph
+// git log --oneline --abbrev-commit --all --graph --decorate
+// git log --oneline --abbrev-commit --all --graph --decorate --color
+// git config --global alias.graph "log --graph --oneline –decorate=short"
