@@ -1,0 +1,15 @@
+{
+  "name": "22-testing-basics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sum.js",
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watch sum.test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.6.4"
+  }
+}
